@@ -1,9 +1,9 @@
 # Halfmind
 
 Halfmind is the global opencode configuration. It contains agents, commands,
-skills, and plugins. Symbolic links connect `~/.config/opencode/` to this
-repository. All text in this repository MUST follow the rules in this
-document.
+skills, plugins, and templates. Symbolic links connect
+`~/.config/opencode/` to this repository. All text in this repository MUST
+follow the rules in this document.
 
 ## The Model
 
@@ -34,6 +34,22 @@ output of one operation is the input of the next operation.
 A command MAY chain agents and tools. A skill MUST load only when needed. A
 plugin MUST contain exact code and no judgment.
 
+### Prompts, Files, and Templates
+
+An agent file holds the goals and constraints of the agent. The file body
+becomes the system prompt. A subagent call or a user message adds conditions
+on top of the system prompt. A caller MUST NOT repeat the goals and
+constraints.
+
+An operation SHOULD use a file for the input and a file for the output. The
+call prompt carries the task data. The file carries the bulk data. A file
+survives the call, so a later operation MAY use the result.
+
+A template defines the shape of a file. A template is a bulk constraint.
+Templates live in the `template/` folder. A capability definition SHOULD
+name the input template and the output template. The template keeps the
+capability file short.
+
 ## Language Rules
 
 All text in this repository MUST comply with two standards. The standards
@@ -59,7 +75,7 @@ usual English meaning.
 - One word MUST have one meaning. Use the same term for the same concept.
 - Idioms, slang, and metaphors MUST NOT occur, unless the glossary defines
   the term as a technical name.
-- A series of three or more items MUST use a vertical list.
+- A complex series of items SHOULD use a vertical list.
 
 ### Goals and Constraints
 
@@ -92,6 +108,7 @@ changes.
 | Command | `command/<name>.md` | `description`, `agent`, `model` | The user types `/name`. |
 | Skill | `skills/<name>/SKILL.md` | `name`, `description` | The `description` field. |
 | Plugin | `plugin/<name>.ts` | None | A hook or a tool call. |
+| Template | `template/<name>.md` | None | A capability reads the template. |
 
 Rules:
 
@@ -99,6 +116,11 @@ Rules:
 - A skill folder name MUST equal the `name` field.
 - An agent `description` MUST state the operation and the trigger.
 - An agent with `mode: subagent` MUST do one small operation.
+- The body of an agent file MUST hold the goals and constraints of the
+  operation.
+- A capability definition SHOULD name the input file and the output file.
+- A capability definition SHOULD name a template when a standard shape
+  exists.
 - A command input MUST come from the `$ARGUMENTS` string.
 - A capability file MUST state a goal and constraints. It MUST NOT state a
   sequence of steps.
@@ -121,6 +143,7 @@ Rules:
 - **Agent**: a small fuzzy operation. It is almost a function.
 - **Command**: a fixed chain of operations. The user starts it with `/name`.
 - **Constraint**: a condition on a result or a method.
+- **File**: the durable input or output of an operation.
 - **Fuzzy program**: an operation with judgment inside. Its output is not
   exact.
 - **Goal**: the wanted result of an operation.
@@ -128,9 +151,15 @@ Rules:
 - **Pipe**: a connection between two operations.
 - **Plugin**: exact code with no judgment. A system call in the model.
 - **Primary agent**: the agent that talks to the user. It starts operations.
+- **Prompt**: the text of one agent call. It adds conditions on top of the
+  system prompt.
 - **Skill**: a manual page. It loads on demand.
 - **Subagent**: an operation that another agent starts. It has a fresh
   context.
+- **System prompt**: the body of an agent file. It holds the goals and
+  constraints of the agent.
 - **Task tool**: the pipe for a subagent call.
+- **Template**: a file that defines the shape of another file. A template is
+  a bulk constraint.
 - **Unix model**: the rule that each operation does one thing, and
   operations chain together.
