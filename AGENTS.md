@@ -21,18 +21,35 @@ subagent MUST get a fresh context.
 Operations chain together. Text flows from one operation to the next. The
 output of one operation is the input of the next operation.
 
+An agent run is a process. The system prompt is the code. The call prompt is
+the arguments. The file is the data. The run writes the output as text or as
+a file.
+
 | Element | Unix equivalent | Behavior |
 | --- | --- | --- |
 | Primary agent | Shell | talks to the user, starts operations |
 | Subagent | Function | does one fuzzy operation |
+| Agent run | Process | reads the input, writes the output |
 | Task tool | Pipe | sends one input, receives one output |
+| Unix operation | Filter | transforms the input |
+| File | Buffer | holds the data between operations |
 | Command | Shell script | runs a fixed chain of operations |
 | Skill | Manual page | loads on demand |
 | Plugin | System call | runs exact code, no judgment |
 | opencode.jsonc | Shell profile | declares the elements |
 
-A command MAY chain agents and tools. A skill MUST load only when needed. A
-plugin MUST contain exact code and no judgment.
+A chain MAY mix agent runs and Unix operations. A pipe connects two
+processes. The Task tool is the pipe inside opencode. A shell pipe is the
+pipe outside opencode. `opencode run` reads stdin and writes stdout.
+
+    cat notes.md | grep TODO | opencode run "resolve each item"
+
+A file is the preferred interface. A file survives the call, so a later
+operation MAY use the result. A pipe is the exception for a short transform.
+A pipe does not survive the call.
+
+A command MAY chain agent runs, Unix operations, and files. A skill MUST
+load only when needed. A plugin MUST contain exact code and no judgment.
 
 ### Prompts, Files, and Templates
 
@@ -151,9 +168,11 @@ Rules:
 - **Pipe**: a connection between two operations.
 - **Plugin**: exact code with no judgment. A system call in the model.
 - **Primary agent**: the agent that talks to the user. It starts operations.
+- **Process**: one agent run. It reads the input and writes the output.
 - **Prompt**: the text of one agent call. It adds conditions on top of the
   system prompt.
 - **Skill**: a manual page. It loads on demand.
+- **Stream**: the live text between two processes.
 - **Subagent**: an operation that another agent starts. It has a fresh
   context.
 - **System prompt**: the body of an agent file. It holds the goals and
@@ -163,3 +182,4 @@ Rules:
   a bulk constraint.
 - **Unix model**: the rule that each operation does one thing, and
   operations chain together.
+- **Unix operation**: an exact process, such as `grep` or `jq`.
