@@ -7,4 +7,6 @@ Slug of the design:
 
 $ARGUMENTS
 
+Design file: `~/workplace/planning/<slug>/design.md`
+
 If the slug is empty, ask the user for it.
