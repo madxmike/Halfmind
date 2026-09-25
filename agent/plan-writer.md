@@ -60,7 +60,7 @@ The plan reviewer approves the plan.
 ## Gates
 
 - The user MUST confirm the plan content before the plan is final.
-- The agent MUST call the `plan-reviewer` subagent through the Task tool after the first write.
+- The agent MUST call the `plan-reviewer` subagent through the subagent tool after the first write.
 - The call prompt MUST carry the plan path only.
 - On `VERDICT: REVISE`, the agent MUST apply the findings and call the reviewer again.
 - The loop cap is 3 review rounds.

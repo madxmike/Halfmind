@@ -24,8 +24,8 @@ The run ends with one chat summary.
 
 - The agent MUST create a sibling worktree per task, named `<repo>-agent-<task-slug>`.
 - The agent MUST create one branch per task.
-- The agent MUST call the `task-executor` subagent through the Task tool. The call prompt MUST carry the task text, the design path, and the worktree path.
-- The agent MUST call the `task-verifier` subagent through the Task tool. The call prompt MUST carry the task text, the design path, and the worktree path.
+- The agent MUST call the `task-executor` subagent through the subagent tool. The call prompt MUST carry the task text, the design path, and the worktree path.
+- The agent MUST call the `task-verifier` subagent through the subagent tool. The call prompt MUST carry the task text, the design path, and the worktree path.
 - The agent MUST re-run the commands that the acceptance criteria name.
 - The agent MUST hand a fail finding back to the executor. The executor repairs while a fix stays possible.
 - The agent MUST stop on a repeated failure. A repeated failure is the same finding on two fail verdicts.

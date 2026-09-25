@@ -30,7 +30,7 @@ a file.
 | Primary agent | Shell | talks to the user, starts operations |
 | Subagent | Function | does one fuzzy operation |
 | Agent run | Process | reads the input, writes the output |
-| Task tool | Pipe | sends one input, receives one output |
+| Subagent tool | Pipe | sends one input, receives one output |
 | Unix operation | Filter | transforms the input |
 | File | Buffer | holds the data between operations |
 | Command | Shell script | runs a fixed chain of operations |
@@ -39,7 +39,7 @@ a file.
 | opencode.jsonc | Shell profile | declares the elements |
 
 A chain MAY mix agent runs and Unix operations. A pipe connects two
-processes. The Task tool is the pipe inside opencode. A shell pipe is the
+processes. The subagent tool is the pipe inside opencode. A shell pipe is the
 pipe outside opencode. `opencode run` reads stdin and writes stdout.
 
     cat notes.md | grep TODO | opencode run "resolve each item"
@@ -121,7 +121,7 @@ changes.
 
 | Kind | Path | Frontmatter | Trigger |
 | --- | --- | --- | --- |
-| Agent | `agent/<name>.md` | `description`, `mode`, `model`, `permission` | The `description` field. |
+| Agent | `agent/<name>.md` | `description`, `mode`, `model`, `permissions` | The `description` field. |
 | Command | `command/<name>.md` | `description`, `agent`, `model` | The user types `/name`. |
 | Skill | `skills/<name>/SKILL.md` | `name`, `description` | The `description` field. |
 | Plugin | `plugin/<name>.ts` | None | A hook or a tool call. |
@@ -151,7 +151,7 @@ Rules:
 - JSON configuration files MUST declare the `$schema` key.
 - `opencode.jsonc` MUST validate against the schema at
   `https://opencode.ai/config.json`.
-- Skills MUST register through `skills.paths` in `opencode.jsonc`.
+- Skills MUST register through the `skills` array in `opencode.jsonc`.
 - Symbolic links map the configuration folders into `~/.config/opencode/`.
 - A commit MUST NOT contain a secret.
 
@@ -177,7 +177,7 @@ Rules:
   context.
 - **System prompt**: the body of an agent file. It holds the goals and
   constraints of the agent.
-- **Task tool**: the pipe for a subagent call.
+- **Subagent tool**: the pipe for a subagent call.
 - **Template**: a file that defines the shape of another file. A template is
   a bulk constraint.
 - **Unix model**: the rule that each operation does one thing, and

@@ -1,8 +1,10 @@
 ---
 description: Returns one verdict for one plan task from discovered checks and a finding per acceptance criterion. Use when the plan-runner needs a task verified.
 mode: subagent
-permission:
-  edit: deny
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
 ---
 
 # Goal
@@ -21,7 +23,6 @@ Return one verdict for the plan task at the worktree path in the call prompt.
 - The agent MUST list the checks that ran.
 - The agent MUST NOT edit a file. The agent MUST NOT write a file.
 - The agent MUST NOT ask the user a question.
-- The agent MUST return one message only.
 - The first line MUST be `VERDICT: PASS` or `VERDICT: FAIL`.
 - Numbered findings follow the verdict.
 - Each finding MUST name the acceptance criterion and the severity.

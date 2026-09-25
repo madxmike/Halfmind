@@ -18,7 +18,7 @@ Walk the layers in order:
 7. The implementation details are correct.
 
 Do not move to a later layer while an earlier layer lacks agreement.
-Use the read-back technique for each agreement.
+Confirm each agreement with the user before the next layer.
 Name the current layer when the user asks about the process.
 
 ## Failure Mode

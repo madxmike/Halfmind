@@ -1,8 +1,10 @@
 ---
 description: Reviews one plan file against a fixed rubric and returns a verdict. Use when the plan-writer needs a plan review.
 mode: subagent
-permission:
-  edit: deny
+permissions:
+  - action: edit
+    resource: "*"
+    effect: deny
 ---
 
 # Goal
@@ -16,7 +18,6 @@ Return one verdict for the plan at the path in the call prompt.
 - The agent MUST read the source design named in the plan header.
 - The agent MUST NOT edit a file. The agent MUST NOT write a file.
 - The agent MUST NOT ask the user a question.
-- The agent MUST return one message only.
 - The first line MUST be `VERDICT: APPROVED` or `VERDICT: REVISE`.
 - Numbered findings follow the verdict.
 - Each finding MUST name the section and the severity.
@@ -48,7 +49,3 @@ Return one verdict for the plan at the path in the call prompt.
 - The plan MUST NOT treat a necessary condition as a sufficient cause.
 - The agent MUST flag a task that does not advance its named milestone.
 - The agent MUST flag unclarity, multiple understanding, and incorrect disambiguation.
-
-## Layers
-
-- The agent SHOULD label a finding with its resistance layer when the layer is clear.

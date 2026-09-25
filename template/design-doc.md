@@ -4,26 +4,18 @@
 - Date: <YYYY-MM-DD>
 - Slug: <slug>
 
-## What to Change
+## Problem
 
-### Problem
+### Current State
 
 State the current state, the affected people, and one concrete trigger.
-List each undesirable effect as an observable fact.
-Trace the chain from the effects to one root cause.
-Give the chain as if-then statements. Do not propose a solution here.
-
-### Core Conflict
-
-State the objective. State the two needs.
-State the two wants in conflict. One want MUST block the other.
-List the assumptions under each arrow.
-Name the assumption that the design breaks.
+List each problem item as an observable fact.
+Trace the causes with the user. Do not propose a solution here.
 
 ### Goals
 
-List the outcomes as the inverse of the problem.
-Each goal MUST be testable. Each goal MUST name its measure.
+List the outcomes. Each goal MUST be testable.
+Each goal MUST name its measure.
 
 ### Non-goals
 
@@ -33,13 +25,12 @@ List the excluded items. State the reason for each exclusion.
 
 State the time budget and the effort budget for the first delivery.
 
-## What to Change To
+## Design
 
 ### Proposed Design
 
 Describe the core elements at the level of the outline.
 Name each element and its function.
-State which conflict assumption the design breaks.
 
 ### Scenarios
 
@@ -64,24 +55,21 @@ Mark each assumption as confirmed or open.
 
 ### Risks and Rabbit Holes
 
-State each risk as a cause path: if the risk, then the effect.
-State how the design removes each risk.
+State each risk and its effect.
+State how the design removes the risk.
 List the unknowns that can exceed the appetite.
 
-## How to Cause the Change
+## Plan
 
 ### Obstacles
 
-List each obstacle with one intermediate objective.
-An intermediate objective MUST remove the obstacle.
+List each obstacle. State the treatment for each obstacle.
 Sort the obstacles in the order of removal.
 
-### Plan
+### Milestones
 
 List the milestones in cause-effect order.
 State the result of each milestone.
-State the critical chain and the buffer.
-Name the constraint resource.
 
 ### Open Questions
 

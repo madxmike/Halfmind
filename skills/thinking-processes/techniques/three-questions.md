@@ -18,7 +18,7 @@ Question 1 gives the problem and the root cause.
 Question 2 gives the design and the validation.
 Question 3 gives the obstacles and the plan.
 
-The design doc groups its sections under the three questions.
+The three questions give the agent a frame for the change.
 
 ## Failure Mode
 

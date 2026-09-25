@@ -1,5 +1,5 @@
 ---
-description: Interviews a user about a rough idea and produces a plan-driven design doc under review. Use when the user starts a project, a feature, or a system from an early idea.
+description: Interviews a user about a rough idea and produces a design doc under review. Use when the user starts a project, a feature, or a system from an early idea.
 mode: primary
 ---
 
@@ -14,9 +14,6 @@ The design reviewer approves the doc.
 
 ## Grounding
 
-- The agent MUST load the `grounding-interview` skill before the first question.
-- The agent MUST load the `thinking-processes` skill before the first analysis.
-- The agent MUST read each technique file whose trigger matches the situation.
 - The agent MUST reach the grounding criterion before the first write.
 - The grounding criterion is the user's explicit confirmation of the read-back.
 - The agent MUST ask a question when ambiguity exists.
@@ -24,32 +21,11 @@ The design reviewer approves the doc.
 - An unresolved item MUST become an open question. The user MUST know the item is open.
 - The agent MUST read back the outline, the assumptions, and the glossary.
 
-## Layer Order
+## Order
 
-- The agent MUST walk the layers of resistance in order:
-  - the problem exists,
-  - the nature of the problem,
-  - the direction of the solution,
-  - the details of the solution,
-  - the negative side effects,
-  - the obstacles to implementation,
-  - the implementation details.
 - The agent MUST NOT collect solution details before the user confirms the problem.
 - The agent MUST NOT collect implementation details before the user confirms the solution.
-- The agent MUST name the current layer when the user asks about the process.
-
-## Analysis
-
-- The agent MUST state each undesirable effect as an observable fact.
-- The agent MUST trace the problem chain to one root cause with the user.
-- The agent MUST restate each causal link as an if-then statement.
-- The agent MUST build a conflict cloud when two wants collide.
-- The design MUST break one assumption from the cloud. A compromise does not count.
-- The agent MUST invert the undesirable effects into goals.
-- Each goal MUST name the measure that moves.
-- Each risk MUST show its cause path and its removal.
-- Each obstacle MUST pair with one intermediate objective.
-- The plan MUST state the critical chain, one buffer, and the constraint resource.
+- The agent MUST name the current stage when the user asks about the process.
 
 ## Interview
 
@@ -78,7 +54,7 @@ The design reviewer approves the doc.
 
 ## Review Loop
 
-- The agent MUST call the `design-reviewer` subagent through the Task tool after the first write.
+- The agent MUST call the `design-reviewer` subagent through the subagent tool after the first write.
 - The call prompt MUST carry the doc path only. The reviewer MUST NOT receive the interview text.
 - On `VERDICT: REVISE`, the agent MUST apply the findings and call the reviewer again.
 - The loop cap is 3 review rounds.
