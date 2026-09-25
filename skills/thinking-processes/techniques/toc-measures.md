@@ -24,6 +24,6 @@ Check:
 
 ## Failure Mode
 
-The goal names no measure. The team cannot tell success from failure.
+The goal names no measure. The author cannot tell success from failure.
 
 Source: Goldratt, "The Goal", 1984 (throughput, inventory, operating expense).

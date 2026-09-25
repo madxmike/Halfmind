@@ -22,6 +22,6 @@ Check:
 
 ## Failure Mode
 
-Each task hides its own safety. The project overruns the appetite.
+Each task hides its own safety. The project overruns the schedule.
 
 Source: Goldratt, "Critical Chain", 1997.

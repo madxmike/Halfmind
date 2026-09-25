@@ -8,7 +8,7 @@
 ## Technique
 
 State each step as: "if the situation, and the action, then the result".
-Name the owner and the date when the user knows them.
+Name the date when the user knows it.
 Order the steps so each step supplies the next situation.
 Keep one action per step.
 Read the plan from the top and check the chain.
@@ -20,6 +20,6 @@ Check:
 
 ## Failure Mode
 
-The plan lists actions without logic. The team cannot adjust the plan.
+The plan lists actions without logic. The author cannot adjust the plan.
 
 Source: Goldratt, "It's Not Luck", 1994 (transition tree).

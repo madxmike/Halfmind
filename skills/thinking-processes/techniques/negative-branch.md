@@ -20,6 +20,6 @@ Check:
 
 ## Failure Mode
 
-The doc lists a bare risk. The team meets the risk at build time.
+The doc lists a bare risk. The author meets the risk at build time.
 
 Source: Goldratt, "It's Not Luck", 1994 (negative branch reservation).

@@ -21,10 +21,6 @@ Each goal MUST name its measure.
 
 List the excluded items. State the reason for each exclusion.
 
-### Appetite
-
-State the time budget and the effort budget for the first delivery.
-
 ## Design
 
 ### Proposed Design
@@ -41,7 +37,7 @@ Use real data from the interview.
 ### Key Decisions and Alternatives
 
 List each decision with its rationale.
-Name the alternatives that the user rejected.
+Name the rejected alternatives.
 
 ### Glossary
 
@@ -57,7 +53,7 @@ Mark each assumption as confirmed or open.
 
 State each risk and its effect.
 State how the design removes the risk.
-List the unknowns that can exceed the appetite.
+List the unknowns that can grow the scope.
 
 ## Plan
 
@@ -74,4 +70,4 @@ State the result of each milestone.
 ### Open Questions
 
 List each unresolved item.
-Name the person who answers it and the date.
+State what closes each item.

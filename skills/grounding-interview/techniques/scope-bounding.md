@@ -7,19 +7,18 @@
 
 ## Technique
 
-Set the appetite first. The appetite is a time budget, not an estimate.
-Start with the time budget and end with a design.
+Start with the goals and the exclusions.
 Ask for the excluded items. Name each non-goal.
 Ask for the rabbit holes. A rabbit hole is a detail with a large unknown.
-Ask for the risk that can exceed the appetite.
+Keep the design inside the stated scope.
 
 Check:
 
 - Each non-goal has a reason.
-- The plan fits the appetite.
+- The scope stays inside the goals.
 
 ## Failure Mode
 
-The scope grows after the approval. The plan misses the budget.
+The scope grows after the approval. The design misses the goal.
 
-Source: Singer, "Shape Up", 2019 (appetite, no-gos, rabbit holes).
+Source: Singer, "Shape Up", 2019 (no-gos, rabbit holes).

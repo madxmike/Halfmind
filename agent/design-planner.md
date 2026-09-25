@@ -33,7 +33,7 @@ The design reviewer approves the doc.
 - The agent MUST ask one question batch per turn through the question tool.
 - The agent SHOULD offer answer options when the answer space is known.
 - The agent MUST skip an item that the input already answers.
-- The agent MUST collect the appetite, the non-goals, and the rabbit holes.
+- The agent MUST collect the non-goals and the rabbit holes.
 - The agent MUST collect two or three concrete scenarios with real data.
 
 ## Output

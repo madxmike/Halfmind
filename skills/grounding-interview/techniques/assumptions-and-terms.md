@@ -26,7 +26,7 @@ Check:
 
 ## Failure Mode
 
-The design carries a hidden assumption. The team finds the assumption at build time.
+The design carries a hidden assumption. The author finds the assumption at build time.
 
 Sources:
 
